@@ -1,0 +1,19 @@
+{
+  "name": "ktaf-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "test": "nightwatch",
+    "e2e-setup": "selenium-standalone install"
+  },
+  "dependencies": {
+    "nightwatch": "^0.9.16"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015": "^6.24.1",
+    "selenium-standalone": "^6.11.0"
+  }
+}
