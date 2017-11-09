@@ -1,1 +1,6 @@
-export const user = { username:'patest01', password: 'kms'  };
+export default { 
+  loginInfo: {
+    username:'patest01',
+    password: 'kms',
+  },
+};

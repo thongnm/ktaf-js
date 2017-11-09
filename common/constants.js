@@ -1,1 +1,3 @@
-export const LOGIN_TIMEOUT = 3000;
+export default {
+  LOGIN_TIMEOUT: 3000,
+}

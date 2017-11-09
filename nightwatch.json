@@ -32,7 +32,8 @@
       "desiredCapabilities": {
         "browserName": "chrome",
         "acceptSslCerts": true
-      }
+      },
+      "skip_testcases_on_fail": false
     },
 
     "chrome": {

@@ -1,33 +1,9 @@
-const loginElements = {
-  username: {
-    selector: '#username'
-  },
-  password: {
-    selector: '#password'
-  },
-  submit: {
-    selector: '#btnSubmit'
-  },
-  error: {
-    selector: 'p#pageMessage'
-  }
-};
-const loginCommands = {
-  fillInForm: function(info) {
-		return this.setValue('@username', info.username)
-			.setValue('@password', info.password);
-  },
-  submit: function() {
-    return this.click('@submit');
-  },
-  validateError: function (errorMessage) {
-		return this.verify.visible('@error')
-			.verify.containsText('@error', errorMessage);
-  },
-};
+import elements from './login/elements';
+import commands from './login/commands';
+
 export default {
-  commands: [loginCommands],
-  elements:loginElements,
+  commands: [commands],
+  elements,
   url: function() { 
 		return this.api.launchUrl; 
 	},
