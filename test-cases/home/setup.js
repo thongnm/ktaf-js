@@ -1,6 +1,13 @@
 import { TIMEOUT } from '../../common/constants';
 import { loginInfo } from '../../test-data/user';
+
 const before = function(browser) {
+  
+}
+const after = function(browser) {
+
+}
+const beforeEach = function(browser) {
   var login = browser.page.Login();
   const { error, username } = login.elements
   login.navigate()
@@ -8,15 +15,8 @@ const before = function(browser) {
     .fillInForm(loginInfo)
     .submit()
     .waitForElementNotPresent(username.selector, TIMEOUT);
-
 }
-const after = function(browser) {
-  browser.end();
-}
-const beforeEach = function(browser) {
-  
-}
-const afterEach = function(browser) {
+const afterEach = function() {
   
 }
 export default { 

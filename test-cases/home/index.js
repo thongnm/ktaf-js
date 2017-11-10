@@ -1,8 +1,8 @@
-import { TIMEOUT, LOGIN_PAGE_TITLE } from '../../common/constants';
+import { TIMEOUT, PAGE_TITLE } from '../../common/constants';
 import setup from './setup';
 
-// Can logout 
-const can_logout = (browser) => {
+// Logout success
+const logout_success = (browser) => {
   var home = browser.page.Home();
   const { logoutLink } = home.elements
   home.navigate()
@@ -10,12 +10,36 @@ const can_logout = (browser) => {
     .logout()
     .waitForElementNotPresent(logoutLink.selector, TIMEOUT);
   
-  browser.assert.title(LOGIN_PAGE_TITLE);
+  browser.assert.title(PAGE_TITLE.LOGIN);
+  
+  browser.end();
+}
+
+// Should valid assessment period
+const valid_assessment_period = (browser) => {
+  var home = browser.page.Home();
+  var menu = home.section.menu;
+  home.checkAssessmentPeriod();
+
+  browser.end();
+}
+
+// Menu visible
+const menu_visible = (browser) => {
+  var menu = browser.page.Home().section.menu;
+  browser.getText(menu.elements.home.selector, (text) => {
+    browser.assert.equal(text.value,'Home');
+  });
+  browser.getText(menu.elements.provide_feedback.selector, (text) => {
+    browser.assert.equal(text.value,'Provide Feedback');
+  });
 
   browser.end();
 }
 
 export default { 
-  can_logout,
-  ...setup,
+  logout_success,
+  menu_visible,
+  valid_assessment_period,
+  setup,
 }

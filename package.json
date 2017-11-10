@@ -8,6 +8,8 @@
     "e2e-setup": "selenium-standalone install"
   },
   "dependencies": {
+    "dateformat": "^3.0.2",
+    "mysql": "^2.15.0",
     "nightwatch": "^0.9.16"
   },
   "devDependencies": {
