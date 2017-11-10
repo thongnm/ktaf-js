@@ -24,7 +24,7 @@ Run all tests
 ```sh
 $ npm test
 ```
-Run specific test suit (eg: home.js suite)
+Run specific test suite (eg: home.js suite)
 
 ```sh
 $ npm test --tests tests/home.js
