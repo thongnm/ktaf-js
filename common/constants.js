@@ -1,3 +1,4 @@
 export default {
-  LOGIN_TIMEOUT: 3000,
+  TIMEOUT: 3000,
+  LOGIN_PAGE_TITLE: 'Login | PA Tool',
 }

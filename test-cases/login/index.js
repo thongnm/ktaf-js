@@ -1,4 +1,4 @@
-import { LOGIN_TIMEOUT as TIMEOUT } from '../../common/constants';
+import { TIMEOUT } from '../../common/constants';
 import { loginInfo } from '../../test-data/user';
 import { loginErrorMsg } from '../../common/messages';
 
