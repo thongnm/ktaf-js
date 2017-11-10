@@ -3,7 +3,6 @@ import dateFormat from 'dateformat';
 import { DATE_FORMAT } from '../common/constants';
 
 export const getPaProgramData = (callback) => {
-  const data = {};
   connection.connect((err) => {
     if (err) callback(err, null);
     const sql = 'select  * from paprograms';
@@ -13,7 +12,6 @@ export const getPaProgramData = (callback) => {
     });
     connection.end();
   });
-  return data;
 }
 export const getAssessmentPeriodString = (callback) => {
   getPaProgramData((error, result) => {
