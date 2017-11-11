@@ -4,7 +4,7 @@ import commands from './login/commands';
 export default {
   commands: [commands],
   elements,
-  url: function() { 
-		return this.api.launchUrl; 
-	},
-}
+  url: function() {
+    return this.api.launchUrl;
+  },
+};

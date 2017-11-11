@@ -1,6 +1,6 @@
 import connection from '../common/db';
 import dateFormat from 'dateformat';
-import { DATE_FORMAT } from '../common/constants';
+import {DATE_FORMAT} from '../common/constants';
 
 export const getPaProgramData = (callback) => {
   connection.connect((err) => {
@@ -8,15 +8,15 @@ export const getPaProgramData = (callback) => {
     const sql = 'select  * from paprograms';
     connection.query(sql, (err, result) => {
       if (err) callback(err, null);
-      else callback(null, result)
+      else callback(null, result);
     });
     connection.end();
   });
-}
+};
 export const getAssessmentPeriodString = (callback) => {
   getPaProgramData((error, result) => {
-    const data = result.filter(item => {
-      return item.Status === 2
+    const data = result.filter((item) => {
+      return item.Status === 2;
     })[0];
     const fromDate = dateFormat(data.FromDate, DATE_FORMAT);
     const toDate = dateFormat(data.ToDate, DATE_FORMAT);
@@ -24,3 +24,4 @@ export const getAssessmentPeriodString = (callback) => {
     callback(error, periodString);
   });
 }
+;

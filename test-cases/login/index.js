@@ -1,11 +1,11 @@
-import { TIMEOUT } from '../../common/constants';
-import { loginInfo } from '../../test-data/user';
-import { loginErrorMsg } from '../../common/messages';
+import {TIMEOUT} from '../../common/constants';
+import {loginInfo} from '../../test-data/user';
+import {loginErrorMsg} from '../../common/messages';
 
-// Login success 
-const login_success = (browser) => {
-  var login = browser.page.Login();
-  const { error, username } = login.elements
+// Login success
+const loginSuccess = (browser) => {
+  let login = browser.page.login();
+  const {username} = login.elements;
   login.navigate()
     .waitForElementVisible(username.selector, TIMEOUT)
     .fillInForm(loginInfo)
@@ -13,12 +13,12 @@ const login_success = (browser) => {
     .waitForElementNotPresent(username.selector, TIMEOUT);
 
   browser.end();
-}
+};
 
 // Login fail
-const login_fail = (browser) => {
-  var login = browser.page.Login();
-  const { error, username } = login.elements
+const loginFail = (browser) => {
+  let login = browser.page.login();
+  const {error, username} = login.elements;
   login.navigate()
     .waitForElementVisible(username.selector, TIMEOUT)
     .fillInForm({})
@@ -27,9 +27,9 @@ const login_fail = (browser) => {
     .validateError(loginErrorMsg);
 
   browser.end();
-}
+};
 
-export default { 
-  login_success,
-  login_fail,
-}
+export default {
+  loginSuccess,
+  loginFail,
+};

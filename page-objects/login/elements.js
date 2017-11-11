@@ -1,14 +1,14 @@
 export default {
   username: {
-    selector: '#username'
+    selector: '#username',
   },
   password: {
-    selector: '#password'
+    selector: '#password',
   },
   submit: {
-    selector: '#btnSubmit'
+    selector: '#btnSubmit',
   },
   error: {
-    selector: 'p#pageMessage'
-  }
+    selector: 'p#pageMessage',
+  },
 };

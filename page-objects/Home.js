@@ -8,7 +8,7 @@ export default {
   sections: {
     menu,
   },
-  url: function() { 
-		return `${ this.api.launchUrl }/home`; 
-	},
-}
+  url: function() {
+    return `${ this.api.launchUrl }/home`;
+  },
+};
