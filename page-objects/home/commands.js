@@ -1,4 +1,6 @@
 import {getAssessmentPeriodString} from '../../test-data/pa';
+import dynamicSection from '../../common/helper';
+import datagrid from '../components/datagrid';
 
 export default {
   logout: function() {
@@ -10,5 +12,8 @@ export default {
         this.assert.equal(result.value, `Assessment Period:${data}`);
       });
     });
+  },
+  getDataGridSection: function(selector) {
+    return dynamicSection(datagrid, selector);
   },
 };

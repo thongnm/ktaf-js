@@ -36,9 +36,19 @@ const menuVisible = (browser) => {
   browser.end();
 };
 
+// Dealine setting
+const deadlineSetting = (browser) => {
+  const datagrid = browser.page.home().getDataGridSection('table');
+  datagrid.getColumns((columns) => {
+    browser.assert.equal(columns, 'Steps');
+  });
+  browser.end();
+};
+
 export default {
   logoutSuccess,
   menuVisible,
   validAssessmentPeriod,
+  deadlineSetting,
   setup,
 };

@@ -4,5 +4,6 @@ const homeSuite = {
   'Logout success': home.logoutSuccess,
   'Menu visible': home.menuVisible,
   'Valid assessment period': home.validAssessmentPeriod,
+  'Valid deadline setting': home.deadlineSetting,
 };
 export default homeSuite;
