@@ -1,5 +1,9 @@
 export default {
   TIMEOUT: 3000,
+  LOCATED: {
+    css: 'css selector',
+    xpath: 'xpath',
+  },
   DATE_FORMAT: 'm/d/yyyy',
   PAGE_TITLE: {
     LOGIN: 'Login | PA Tool',

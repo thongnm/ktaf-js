@@ -1,5 +1,6 @@
 import {TIMEOUT, PAGE_TITLE} from '../../common/constants';
 import setup from './setup';
+import {columnHeaders} from './data';
 
 // Logout success
 const logoutSuccess = (browser) => {
@@ -38,9 +39,11 @@ const menuVisible = (browser) => {
 
 // Dealine setting
 const deadlineSetting = (browser) => {
-  const datagrid = browser.page.home().getDataGridSection('table');
+  const xpath = `//div[@class='prepend-4 span-17 append-4']`;
+  const datagrid = browser.page.home()
+        .getDataGridSection(xpath);
   datagrid.getColumns((columns) => {
-    browser.assert.equal(columns, 'Steps');
+    browser.assert.deepEqual(columnHeaders, columns);
   });
   browser.end();
 };
