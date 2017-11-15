@@ -39,11 +39,10 @@ const menuVisible = (browser) => {
 
 // Dealine setting
 const deadlineSetting = (browser) => {
-  const xpath = `//div[@class='prepend-4 span-17 append-4']`;
-  const datagrid = browser.page.home()
-        .getDataGridSection(xpath);
+  const home = browser.page.home();
+  const datagrid = home.getDataGridSection(home.elements.deadlineGrid.selector);
   datagrid.getColumns((columns) => {
-    browser.assert.deepEqual(columnHeaders, columns);
+    browser.assert.deepEqual(columns, columnHeaders);
   });
   browser.end();
 };
