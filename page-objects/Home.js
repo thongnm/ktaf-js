@@ -1,10 +1,11 @@
 import elements from './home/elements';
 import commands from './home/commands';
+import baseCommands from './base/commands';
 import menu from './components/menu';
 import datagrid from './components/datagrid';
 
 export default {
-  commands: [commands],
+  commands: [baseCommands, commands],
   elements,
   sections: {
     menu,

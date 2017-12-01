@@ -1,49 +1,33 @@
-import {TIMEOUT, PAGE_TITLE} from '../../common/constants';
-import setup from './setup';
-import {columnHeaders} from './data';
+import hooks from './hooks';
 
 // Logout success
 const logoutSuccess = (browser) => {
-  let home = browser.page.home();
-  const {logoutLink} = home.elements;
-  home.navigate()
-    .waitForElementVisible(logoutLink.selector, TIMEOUT)
-    .logout()
-    .waitForElementNotPresent(logoutLink.selector, TIMEOUT);
-
-  browser.assert.title(PAGE_TITLE.LOGIN);
+  const home = browser.page.home();
+  home.logout()
+      .shouldNavigateToLoginPage();
 
   browser.end();
 };
 
 // Should valid assessment period
 const validAssessmentPeriod = (browser) => {
-  let home = browser.page.home();
-  home.checkAssessmentPeriod();
+  const home = browser.page.home();
+  home.shouldValidAssessmentPeriod();
 
   browser.end();
 };
 
 // Menu visible
 const menuVisible = (browser) => {
-  let menu = browser.page.home().section.menu;
-  browser.getText(menu.elements.home.selector, (text) => {
-    browser.assert.equal(text.value, 'Home');
-  });
-  browser.getText(menu.elements.provide_feedback.selector, (text) => {
-    browser.assert.equal(text.value, 'Provide Feedback');
-  });
-
+  const home = browser.page.home();
+  home.shouldValidMenu();
   browser.end();
 };
 
 // Dealine setting
 const deadlineSetting = (browser) => {
   const home = browser.page.home();
-  const datagrid = home.getDataGridSection(home.elements.deadlineGrid.selector);
-  datagrid.getColumns((columns) => {
-    browser.assert.deepEqual(columns, columnHeaders);
-  });
+  home.shouldValidDeadlineSetting();
   browser.end();
 };
 
@@ -52,5 +36,5 @@ export default {
   menuVisible,
   validAssessmentPeriod,
   deadlineSetting,
-  setup,
+  hooks,
 };

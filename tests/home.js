@@ -1,8 +1,8 @@
 import home from '../test-cases/home/';
 const homeSuite = {
-  ...home.setup,
+  ...home.hooks,
   'Logout success': home.logoutSuccess,
-  'Menu visible': home.menuVisible,
+  'Valid menu items': home.menuVisible,
   'Valid assessment period': home.validAssessmentPeriod,
   'Valid deadline setting': home.deadlineSetting,
 };
