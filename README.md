@@ -1,4 +1,4 @@
-# KTAF-JS Nightwatch
+# TAF-JS Nightwatch
 Code base for nightwatch.js with selenium
 
 Original Framework is from https://github.com/nightwatchjs/nightwatch
