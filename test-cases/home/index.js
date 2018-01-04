@@ -4,6 +4,11 @@ const beforeEach = function(browser) {
   doLogin(browser);
   home = browser.page.home();
 };
+const afterEach = function(browser, done) {
+  setTimeout(() => {
+    done();
+  }, 200);
+};
 
 // Logout success
 const logoutSuccess = (browser) => {
@@ -23,19 +28,24 @@ const validAssessmentPeriod = (browser) => {
 // Menu visible
 const menuVisible = (browser) => {
   home.shouldValidMenu();
+
   browser.end();
 };
 
 // Dealine setting
 const deadlineSetting = (browser) => {
   home.shouldValidDeadlineSetting();
+
   browser.end();
 };
-
+const hooks = {
+  beforeEach,
+  afterEach,
+};
 export default {
   logoutSuccess,
   menuVisible,
   validAssessmentPeriod,
   deadlineSetting,
-  beforeEach,
+  hooks,
 };
