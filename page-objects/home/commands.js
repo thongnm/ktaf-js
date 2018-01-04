@@ -2,15 +2,14 @@ import {getAssessmentPeriodString} from '../../test-data/pa';
 import {TIMEOUT, PAGE_TITLE} from '../../common/constants';
 import dynamicSection from '../../common/helper';
 import datagrid from '../components/datagrid';
-import {logoutLink} from './elements';
 
 export default {
   logout: function() {
-    return this.waitForElementVisible(logoutLink.selector, TIMEOUT)
+    return this.waitForElementVisible('@logoutLink', TIMEOUT)
           .click('@logoutLink');
   },
   shouldNavigateToLoginPage: function() {
-    return this.waitForElementNotPresent(logoutLink.selector, TIMEOUT)
+    return this.waitForElementNotPresent('@logoutLink', TIMEOUT)
           .assert.title(PAGE_TITLE.LOGIN);
   },
   shouldValidAssessmentPeriod: function() {

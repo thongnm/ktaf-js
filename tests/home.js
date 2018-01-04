@@ -1,6 +1,6 @@
 import home from '../test-cases/home/';
 const homeSuite = {
-  ...home.hooks,
+  'beforeEach': home.beforeEach,
   'Logout success': home.logoutSuccess,
   'Valid menu items': home.menuVisible,
   'Valid assessment period': home.validAssessmentPeriod,

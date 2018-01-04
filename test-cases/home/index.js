@@ -1,8 +1,12 @@
-import hooks from './hooks';
+import {doLogin} from '../../page-objects/login/commands';
+let home;
+const beforeEach = function(browser) {
+  doLogin(browser);
+  home = browser.page.home();
+};
 
 // Logout success
 const logoutSuccess = (browser) => {
-  const home = browser.page.home();
   home.logout()
       .shouldNavigateToLoginPage();
 
@@ -11,7 +15,6 @@ const logoutSuccess = (browser) => {
 
 // Should valid assessment period
 const validAssessmentPeriod = (browser) => {
-  const home = browser.page.home();
   home.shouldValidAssessmentPeriod();
 
   browser.end();
@@ -19,14 +22,12 @@ const validAssessmentPeriod = (browser) => {
 
 // Menu visible
 const menuVisible = (browser) => {
-  const home = browser.page.home();
   home.shouldValidMenu();
   browser.end();
 };
 
 // Dealine setting
 const deadlineSetting = (browser) => {
-  const home = browser.page.home();
   home.shouldValidDeadlineSetting();
   browser.end();
 };
@@ -36,5 +37,5 @@ export default {
   menuVisible,
   validAssessmentPeriod,
   deadlineSetting,
-  hooks,
+  beforeEach,
 };

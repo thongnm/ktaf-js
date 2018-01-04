@@ -1,13 +1,6 @@
 import {loginInfo} from '../../test-data/user';
 import {loginErrorMsg} from '../../common/messages';
-
-// Do login
-const doLogin = (browser, info = loginInfo) => {
-  let login = browser.page.login();
-  return login.goto()
-    .fillInForm(info)
-    .submit();
-};
+import {doLogin} from '../../page-objects/login/commands';
 
 // Login success
 const loginSuccess = (browser) => {
@@ -24,7 +17,6 @@ const loginFail = (browser) => {
 };
 
 export default {
-  doLogin,
   loginSuccess,
   loginFail,
 };
